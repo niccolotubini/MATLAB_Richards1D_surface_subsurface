@@ -2,7 +2,7 @@
 
 function y=dH(psi)
 
-if (psi<=0)
+if (psi<0)
     y = 0;
 else
     y = 1;  
