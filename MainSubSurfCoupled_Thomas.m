@@ -198,8 +198,8 @@ for nit=1:20
                     fk(i) = Theta1(psi(i))*dx - ( Theta2(psik(i))*dx + dTheta2(psik(i))*dx*(psi(i)-psik(i)) ) + b(i)*psi(i) + c(i)*psi(i+1) - rhs(i);
                     di(i) = dTheta1(psi(i))*dx - dTheta2(psik(i))*dx;
                 elseif(i==IMAX+1)
-                    fk(i) = H1(psi(i)) - ( H2(psik(i)) + dH2(psik(i))*(psi(i)-psik(i)) ) + a(i)*psi(i-1) + b(i)*psi(i) - rhs(i);
-                    di(i) = dH1(psi(i)) - dH2(psik(i));
+                    fk(i) = H1(psi(i)) + a(i)*psi(i-1) + b(i)*psi(i) - rhs(i);
+                    di(i) = dH1(psi(i));
                 else
                     fk(i) = Theta1(psi(i))*dx - ( Theta2(psik(i))*dx + dTheta2(psik(i))*dx*(psi(i)-psik(i)) ) + a(i)*psi(i-1) + b(i)*psi(i) + c(i)*psi(i+1) - rhs(i);
                     di(i) = dTheta1(psi(i))*dx - dTheta2(psik(i))*dx;
