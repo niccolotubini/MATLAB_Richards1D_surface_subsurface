@@ -170,15 +170,13 @@ for nit=1:20
         di = zeros(1,IMAX+1);
        
         for i=1:IMAX+1
-            if(i==1)
-                f(i) = Thetaf(psi(i))*dx + b(i)*psi(i) + c(i)*psi(i+1) - rhs(i);
-            elseif(i==IMAX+1)
+            if(i==IMAX+1)
                 f(i) = Hf(psi(i)) + a(i)*psi(i-1) + b(i)*psi(i) - rhs(i);
             else
                 f(i) = Thetaf(psi(i))*dx + a(i)*psi(i-1) + b(i)*psi(i) + c(i)*psi(i+1) - rhs(i);
             end
         end
-        %f(:)
+
         outres = sqrt(sum(f.*f)); %outer residual
         disp(sprintf('    Outer iteration %d, outres=%e',iNewton, outres));
         if(outres<tol)
