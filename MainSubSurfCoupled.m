@@ -182,8 +182,8 @@ for nit=1:NMAX
             
             for i=1:IMAX+1
                 if(i==IMAX+1)
-                    fk(i) = H1(psi(i)) - ( H2(psik(i)) + dH2(psik(i))*(psi(i)-psik(i)) ) + Mpsi(i) - rhs(i);
-                    di(i) = dH1(psi(i)) - dH2(psik(i));
+                    fk(i) = H1(psi(i)) + Mpsi(i) - rhs(i);
+                    di(i) = dH1(psi(i));
                 else
                     fk(i) = Theta1(psi(i))*dx - ( Theta2(psik(i))*dx + dTheta2(psik(i))*dx*(psi(i)-psik(i)) ) + Mpsi(i) - rhs(i);
                     di(i) = dTheta1(psi(i))*dx - dTheta2(psik(i))*dx;
